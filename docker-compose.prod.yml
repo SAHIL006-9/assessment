@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  backend:
+    image: sahil006/django-backend:latest
+    container_name: django-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=False
+
+  frontend:
+    image: sahil006/react-frontend:latest
+    container_name: react-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
